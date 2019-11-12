@@ -1,0 +1,13 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        self.x=str(x)
+        for i in range(len(self.x)//2):
+            if self.x[i]==self.x[-1-i]:
+                pass
+            else:
+                return False
+        return True
+
+if __name__=='__main__':
+    A=Solution()
+    A.isPalindrome('123')
