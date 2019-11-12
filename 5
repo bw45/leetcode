@@ -1,0 +1,45 @@
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        self.s=s
+        self.lis=[]
+        for i,j in enumerate(s):
+            try:
+                if s[i-1]==s[i+1] and i!=0:
+                	self.again(i-1,i+1)
+            except:
+                pass
+        if self.lis != []:
+            self.lis.sort()
+            return self.lis[-1]
+        else:
+        	for i,j in enumerate(self.s):
+        		if i !=len(self.s)-1:
+        			if j==self.s[i+1]:
+        				print(j)
+        				self.again1(i+1)
+        	self.lis.sort()
+        	if self.lis!=[]:
+        		return self.lis[-1]
+        	else:
+        		return None
+    def again(self,lnum,rnum):
+        try:
+            if s[lnum-1]==s[rnum+1]:
+                self.again(lnum-1,rnum+1)
+        except:
+        	self.lis.append(self.s[lnum:rnum+1])
+    def again1(self,num):
+    	try:
+    		if self.s[num]==self.s[num+1]:
+    			self.again1(num+1)
+    		else:
+    			self.lis.append(self.s[num-1:num+1])
+    	except:
+    		self.lis.append(self.s[num-1:num+1])
+if __name__=='__main__':
+    A=Solution()
+    A.longestPalindrome('""')
