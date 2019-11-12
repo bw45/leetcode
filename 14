@@ -1,0 +1,17 @@
+import re
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        self.lis=strs
+        try:
+            for i in range(len(self.lis[0])):
+                letter=self.lis[0][:i+1]
+                try:
+                    b=[letter for j in self.lis if re.match(letter,j).group()]
+                except:
+                    pass
+            return b[0]
+        except:
+            return ''
+if __name__=='__main__':
+    A=Solution()
+    A.longestCommonPrefix(['asd','asw','asqqq'])
