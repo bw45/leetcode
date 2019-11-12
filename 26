@@ -1,0 +1,11 @@
+class Solution:
+    def removeDuplicates(self, nums):
+        self.lis=nums
+        self.lisCopy=list(set(self.lis))
+        c=(i for i in self.lisCopy if self.lis.count(i)>1)
+        d=[self.lis.remove(k) for k in c for j in range(self.lis.count(k)-1)]
+        return len(self.lis)
+
+if __name__=='__main__':
+    A=Solution()
+    A.removeDuplicates([1,1,2])
