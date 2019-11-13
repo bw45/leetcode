@@ -1,0 +1,11 @@
+class Solution:
+    def removeElement(self, nums,val):
+        self.nums=nums
+        self.val=val
+        try:
+            while True:
+                self.nums.remove(self.val)
+        except:
+            pass
+        finally:
+            return len(self.nums)
