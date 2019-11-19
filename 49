@@ -1,0 +1,20 @@
+class Solution:
+    def groupAnagrams(self, strs):
+        self.strs=strs
+        self.dic={}
+        self.result=[]
+        self.deal()
+    def deal(self):
+        for i in self.strs:
+            a=list(i)
+            a.sort()
+            d=''.join(a)
+            self.dic[i]=d
+        for i in self.dic.values():
+            tmp=[]
+            for j in self.dic:
+                if i==self.dic[j]:
+                    tmp.append(j)
+            if tmp not in self.result:
+                self.result.append(tmp)
+        return self.result
