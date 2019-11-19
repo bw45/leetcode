@@ -1,0 +1,27 @@
+class Solution:
+    def permuteUnique(self,nums):
+        self.nums = nums
+        self.end = []
+        if len(self.nums) == 1:
+            return [self.nums]
+        else:
+            self.one()
+            return self.end
+    def one(self):
+        for i in self.nums:
+            te=self.nums[:]
+            te.remove(i)
+            mid=[]
+            mid.append(i)
+            self.two(mid,te)
+    def two(self,lis,rang):
+        for i in rang:
+            tmp=lis[:]
+            tmp.append(i)
+            if len(tmp)<len(self.nums):
+                te1=rang[:]
+                te1.remove(i)
+                self.two(tmp,te1)
+            else:
+                if tmp not in self.end:
+                    self.end.append(tmp)
