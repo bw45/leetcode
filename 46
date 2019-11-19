@@ -1,0 +1,23 @@
+class Solution:
+    def permute(self,nums):
+        self.nums = nums
+        self.end = []
+        if len(self.nums) == 1:
+            return [self.nums]
+        else:
+            self.one()
+            return self.end
+    def one(self):
+        for i in self.nums:
+            mid=[]
+            mid.append(i)
+            self.two(mid)
+    def two(self,lis):
+        for i in self.nums:
+            if i not in lis:
+                tmp=lis[:]
+                tmp.append(i)
+                if len(tmp)<len(self.nums):
+                    self.two(tmp)
+                else:
+                    self.end.append(tmp)
