@@ -1,0 +1,5 @@
+import string
+class Solution(object):
+    def isPalindrome(self, s):
+        b="".join([i for i in s if i in string.ascii_letters+string.digits]).upper()
+        return True if b==b[::-1] else False
