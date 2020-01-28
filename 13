@@ -1,0 +1,14 @@
+class Solution(object):
+    def romanToInt(self, s):
+        dic={'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000}
+        tmp=[dic[i] for i in list(s)]
+        total=0
+        for i in range(len(tmp)):
+            try:
+                if tmp[i]>=tmp[i+1]:
+                    total += tmp[i]
+                else:
+                    tmp[i+1]=tmp[i+1]-tmp[i]
+            except:
+                total+=tmp[i]
+        return total
