@@ -8,6 +8,6 @@ class Solution:
                 return False
         return True
 
-if __name__=='__main__':
-    A=Solution()
-    A.isPalindrome('123')
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        return True if str(x)[::-1]==str(x) else False
